@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-
 import './globals.css'
 
 import { GeistSans } from 'geist/font/sans'
@@ -16,16 +15,23 @@ type LayoutProps = {
 }
 
 const MY_NAME = 'Gaurav Thakur'
-const SITE_URL = env.NEXT_PUBLIC_SITE_URL
+const SITE_URL =
+  env.NEXT_PUBLIC_SITE_URL && env.NEXT_PUBLIC_SITE_URL.trim() !== ''
+    ? env.NEXT_PUBLIC_SITE_URL
+    : 'https://tools.vercel.app' // ✅ safe fallback
 const SITE_TITLE = 'Tools'
 const SITE_DESCRIPTION =
   'Discover a powerful collection of web tools designed to streamline your workflow and boost productivity. Made by GT.'
 
 export const metadata: Metadata = {
+  // ✅ Works even if SITE_URL is missing
   metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_TITLE}`
+  },
   description: SITE_DESCRIPTION,
-  creator: 'Gaurav',
+  creator: MY_NAME,
   manifest: '/site.webmanifest',
   alternates: {
     canonical: SITE_URL
@@ -41,83 +47,58 @@ export const metadata: Metadata = {
       'max-snippet': -1
     }
   },
-  authors: {
-    name: MY_NAME,
-    url: 'https://thegauravthakur.in'
-  },
+  authors: [{ name: MY_NAME, url: 'https://thegauravthakur.in' }],
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_TITLE,
     type: 'website',
-    locale: 'en-US',
+    locale: 'en_US',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: SITE_DESCRIPTION,
-        type: 'image/png'
+        alt: SITE_DESCRIPTION
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    siteId: '1152256803746377730',
-    creator: '@Gaurav',
-    creatorId: '1152256803746377730'
+    site: '@Gaurav',
+    creator: '@Gaurav'
   },
   icons: {
-    icon: {
-      rel: 'icon',
-      type: 'image/x-icon',
-      url: '/favicon.ico'
-    },
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
     apple: [
       {
-        type: 'image/png',
         url: '/apple-touch-icon.png',
+        type: 'image/png',
         sizes: '180x180'
-      }
-    ],
-    other: [
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        url: '/favicon.svg',
-        sizes: 'any'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        url: '/favicon-16x16.png',
-        sizes: '16x16'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        url: '/favicon-32x32.png',
-        sizes: '32x32'
       }
     ]
   }
 }
 
 export const viewport: Viewport = {
-  themeColor: {
-    color: '#000000'
-  }
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  colorScheme: 'dark light'
 }
 
-const Layout = (props: LayoutProps) => {
-  const { children } = props
-
+const Layout = ({ children }: LayoutProps) => {
   return (
-    <html lang='en-US' className={cn(GeistSans.variable, 'dark')}>
-      <body>
+    <html lang="en-US" className={cn(GeistSans.variable, 'dark')}>
+      <body className="bg-black text-white antialiased">
         <Header />
-        <main className='relative mx-auto max-w-4xl px-8 py-24'>{children}</main>
+        <main className="relative mx-auto max-w-4xl px-8 py-24">{children}</main>
         <Toaster />
         <Footer />
         <Analytics />
