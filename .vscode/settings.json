@@ -1,0 +1,27 @@
+{
+  "cSpell.diagnosticLevel": "Warning",
+  "cSpell.enabled": true,
+  "cSpell.ignorePaths": ["node_modules", ".git"],
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+
+  "eslint.runtime": "node",
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+
+  "files.associations": {
+    "*.css": "tailwindcss",
+    ".env*": "properties"
+  },
+
+  "tailwindCSS.classFunctions": ["cva", "cn"],
+
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
