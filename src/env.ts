@@ -7,7 +7,7 @@ export const env = createEnv({
   },
 
   client: {
-    NEXT_PUBLIC_SITE_URL: z.url(),
+    NEXT_PUBLIC_SITE_URL: z.string().optional(),   // FIXED ✔
 
     NEXT_PUBLIC_UMAMI_URL: z.url().optional(),
     NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.uuid().optional()

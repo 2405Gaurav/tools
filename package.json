@@ -2,7 +2,7 @@
   "name": "tools",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Nelson Lai <me@nelsonlai.dev> (https://github.com/nelsonlaidev/)",
+  "author": "Gaurav <gauravthakur835651@gmail.com> (https://github.com/2405Gaurav/)",
   "type": "module",
   "scripts": {
     "build": "next build",
