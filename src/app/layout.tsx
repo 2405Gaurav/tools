@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+
 import './globals.css'
 
 import { GeistSans } from 'geist/font/sans'
@@ -95,10 +96,10 @@ export const viewport: Viewport = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <html lang="en-US" className={cn(GeistSans.variable, 'dark')}>
-      <body className="bg-black text-white antialiased">
+    <html lang='en-US' className={cn(GeistSans.variable, 'dark')}>
+      <body className='bg-black text-white antialiased'>
         <Header />
-        <main className="relative mx-auto max-w-4xl px-8 py-24">{children}</main>
+        <main className='relative mx-auto max-w-4xl px-8 py-24'>{children}</main>
         <Toaster />
         <Footer />
         <Analytics />

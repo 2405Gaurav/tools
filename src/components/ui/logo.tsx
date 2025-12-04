@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+import * as React from 'react'
 
 type LogoProps = {
   src?: string
@@ -16,14 +16,5 @@ export const Logo: React.FC<LogoProps> = ({
   height = 70,
   className
 }) => {
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      priority
-    />
-  )
+  return <Image src={src} alt={alt} width={width} height={height} className={className} priority />
 }
