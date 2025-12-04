@@ -19,13 +19,12 @@ const MY_NAME = 'Gaurav Thakur'
 const SITE_URL =
   env.NEXT_PUBLIC_SITE_URL && env.NEXT_PUBLIC_SITE_URL.trim() !== ''
     ? env.NEXT_PUBLIC_SITE_URL
-    : 'https://tools.vercel.app' // ✅ safe fallback
+    : 'https://tools.vercel.app'
 const SITE_TITLE = 'Tools'
 const SITE_DESCRIPTION =
   'Discover a powerful collection of web tools designed to streamline your workflow and boost productivity. Made by GT.'
 
 export const metadata: Metadata = {
-  // ✅ Works even if SITE_URL is missing
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
