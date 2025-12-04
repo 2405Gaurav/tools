@@ -1,6 +1,6 @@
 <p align="center">
   <img src="public/icon.png" height="128">
-  <h1 align="center">Links</h1>
+  <h1 align="center">GTools</h1>
 </p>
 
 ## Tools
@@ -19,7 +19,7 @@ Follow these steps to run the project locally on your machine:
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/nelsonlaidev/tools.git
+git clone https://github.com/2405Gaurav/tools.git
 ```
 
 2. Navigate to the project directory.
@@ -43,5 +43,5 @@ pnpm dev
 ---
 
 <p align="center">
-Made with ❤️ in Hong Kong
+Made with ❤️ by GT
 </p>
